@@ -1,1 +1,17 @@
-{"name":"MYORYX Scan","short_name":"MYORYX Scan","start_url":"./","scope":"./","display":"standalone","background_color":"#edf1f5","theme_color":"#111b27","icons":[{"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any"}]}
+{
+  "name": "mycam",
+  "short_name": "mycam",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#edf1f5",
+  "theme_color": "#111b27",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
