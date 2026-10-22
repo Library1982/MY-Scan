@@ -56,6 +56,6 @@ function showPreviewPage(){if(!pages.length)return;previewIndex=Math.max(0,Math.
 function openDocumentPreview(){if(!pages.length)return;previewIndex=0;$('previewStatus').textContent='';showPreviewPage();$('documentPreview').showModal()}
 $('backDocument').onclick=()=>$('documentPreview').close();$('documentPreview').addEventListener('close',()=>$('quickPreview').focus());$('prevPreview').onclick=()=>{previewIndex--;showPreviewPage()};$('nextPreview').onclick=()=>{previewIndex++;showPreviewPage()};async function previewOutput(share){$('previewDownload').disabled=$('previewShare').disabled=true;try{await output(share);$('previewStatus').textContent=$('status').textContent}finally{$('previewDownload').disabled=$('previewShare').disabled=false}}$('previewDownload').onclick=()=>previewOutput(false);$('previewShare').onclick=()=>previewOutput(true);
 
-$('quickPreview').onclick=()=>{if(!pages.length)return;try{document.dispatchEvent(new CustomEvent('myoryx:edit-scans',{detail:{blob:pdf(),name:filename()}}))}catch{status('Could not open the document editor.','تعذّر فتح محرر المستند.')}};
+$('quickPreview').onclick=()=>{if(!pages.length)return;try{document.dispatchEvent(new CustomEvent('mycam:edit-scans',{detail:{blob:pdf(),name:filename()}}))}catch{status('Could not open the document editor.','تعذّر فتح محرر المستند.')}};
 
 

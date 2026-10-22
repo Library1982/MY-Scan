@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: myoryx-scan
+    name: mycam-scan
     runtime: static
     buildCommand: ""
     staticPublishPath: ./public
