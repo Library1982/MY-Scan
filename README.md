@@ -1,4 +1,4 @@
-# MYORYX Scan
+# mycam
 Editable camera scanner and image-to-PDF web app. All document processing runs locally in the browser; there is no backend or paid API.
 
 ## Features
