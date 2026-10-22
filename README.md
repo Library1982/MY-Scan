@@ -31,3 +31,12 @@ Automatic light-paper boundary proposals with manual crop review. Auto sizing ma
 
 ## Validation
 JavaScript syntax checked. Generated two-page PDF opened successfully with a PDF parser, with embedded JPEGs and A4 dimensions.
+
+
+## Unified page panel
+Prepare a photo using the scanner tools, then choose **All pages**. Prepared scans move into the document once; imported PDFs and images join the same output sequence. Scanner drafts clear only after successful PDF parsing. Returning to the panel preserves annotations, order and deletions. To scan more, use **Scan more**, prepare the scan, then return to **All pages**.
+
+Each full-page preview includes Move up, Move down and Delete. Select a page for Signature / image, draw a handwritten signature or upload a PNG/JPG, then drag and resize it. Add pages inserts PDFs/images before or after the selected page. Download and Share use the same ordered document, preserving original PDF pages and applying annotations in PDF coordinates. Scan crop/filter changes should be completed before transferring the scan. Document contents remain in memory until reload.
+
+## Panel validation
+Install development dependencies with `npm install`. `npm test` verifies PDF order, page dimensions, embedded annotation images and rotated placement. For the browser regression, run `npx playwright install chromium`, serve `public` on localhost:8000, then run `npm run test:browser`. The browser regression covers mixed inputs, transfer, reorder/delete, drawn signatures, inserted images, downloads, reopening, mobile width and Arabic RTL. It uses local PDF engine packages to avoid CDN dependence during testing. Production retains the existing CDN versions.
