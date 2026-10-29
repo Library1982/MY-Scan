@@ -20,10 +20,9 @@ function enhancedPixels(data,w,h,mode){
     }else if(mode==='text'||mode==='bwclean'){
       // Use a local illumination estimate to reduce grey backgrounds without
       // treating bright book-cover colors as paper. Retain faint text.
-      let sum=0, c=0;for(let dy=-12;dy<=12;dy+=6)for(let dx=-12;dx<=12;dx+=6){
-        const xx=Math.max(0,Math.min(w-1,x+dx)),yy=Math.max(0,Math.min(h-1,y+dy));sum+=lum[yy*w+xx];c++;
-      }
-      value=Math.max(0,Math.min(255,value+(222-sum/c)*.58));
+      const near=(xx,yy)=>lum[Math.max(0,Math.min(h-1,yy))*w+Math.max(0,Math.min(w-1,xx))];
+      const neighborhood=(near(x,y)+near(x-16,y)+near(x+16,y)+near(x,y-16)+near(x,y+16))/5;
+      value=Math.max(0,Math.min(255,value+(222-neighborhood)*.58));
       if(mode==='bwclean')value=value>173?255:value<110?0:Math.round((value-110)*255/63);
       else value=Math.max(0,Math.min(255,(value-128)*1.35+128));
       a[j]=a[j+1]=a[j+2]=value;
